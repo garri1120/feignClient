@@ -1,0 +1,25 @@
+server:
+  port: 9090
+
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          cbr-request:
+            url: https://www.cbr.ru/scripts/XML_daily.asp
+          second-request:
+            url: http://localhost:9090/save-all-currency
+  jpa:
+    open-in-view: false
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/feign-client
+    username: postgres
+    password: root
+  sql:
+    init:
+      platform: postgres
